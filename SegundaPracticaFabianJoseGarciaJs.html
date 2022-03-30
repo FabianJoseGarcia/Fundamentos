@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica 2</title>
+</head>
+<body bgcolor="#D1F2EB" >
+    <h1 align="center">calculadora en Js</h1>
+    <input id="valor 1" name="textinput" type="number" style="width: 100px; height: auto; border: 2px solid rgb(110, 198, 233); padding:2px">
+<input id="valor 2" name="textinput" type="number" style="width: 100px; height: auto; border: 2px solid rgb(110, 198, 233); padding:2px"><br>
+<button id="suma" name="Boton sumar" type="number" style="width: auto; height: auto; border: 2px solid rgb(11, 192, 56); padding:2px" onclick="suma(document.getElementById('valor 1').value,document.getElementById('valor 2').value);">Sumar</button>
+<button id="resta" name="Boton restar"style="width: auto; height: auto; border: 2px solid rgb(11, 192, 56); padding:2px"  onclick="restar(document.getElementById('valor 1').value,document.getElementById('valor 2').value);">Restar</button>
+<button id="Multiplicar" name="Boton Multiplicar" style="width: auto; height: auto; border: 2px solid rgb(11, 192, 56); padding:2px" onclick="multiplicacion(document.getElementById('valor 1').value,document.getElementById('valor 2').value);">Multiplicar</button>
+<button id="Dividir" name="Boton divicion" style="width: auto; height: auto; border: 2px solid rgb(11, 192, 56); padding:2px" onclick="division(document.getElementById('valor 1').value,document.getElementById('valor 2').value);">Dividir</button><br>
+<br>
+<label id="Resultado" type="text" value="0" size="20" style="border: 3px solid rgb(255, 0, 0); padding: 2px; width: 100%; height: auto"></label>
+    </body>
+    <script>
+    let res;
+
+    function suma(num1,num2) {
+     res = parseFloat(num1) + parseFloat(num2);
+     document.getElementById('Resultado').innerHTML = res;
+    }
+    function restar(num1,num2) {
+     res = parseFloat(num1) - parseFloat(num2);
+     document.getElementById('Resultado').innerHTML = res;
+    }
+    
+    function multiplicacion(num1,num2) {
+     res = parseFloat(num1) * parseFloat(num2);
+     document.getElementById('Resultado').innerHTML = res;
+    }
+    
+    function division(num1,num2) {
+     res = parseFloat(num1) / parseFloat(num2);
+     document.getElementById('Resultado').innerHTML = res;
+    }
+</script>
+<h2 align="center">Formula cuadratica</h2>
+
+<script>
+   
+
+function ecuacion(){
+    resultados = document.getElementById("raices");
+
+    var a = Number(document.rellenar.vc.value);
+    var b = Number(document.rellenar.vl.value);
+    var c = Number(document.rellenar.vi.value);
+    var d;
+
+    if (a==0)
+    {
+        var x1= (-c)/b;
+        var x2=0;
+    }
+    else {
+        d=b*b-4*a*c;
+        if(d>0)
+        {
+            var x1 = (-b+(Math.sqrt(d)))/(2*a);
+            var x2 = (-b-(Math.sqrt(d)))/(2*a);
+        }
+        if(d==0)
+        {
+            var x1= (-b)/2*a;
+            var x2= (-b)/2*a;
+        }
+        if (d<0)
+        {
+            alert("Raices Imaginarias");
+        }
+    }
+
+    document.getElementById("x1").value = Number(x1.toFixed(2));
+    document.getElementById("x2").value = Number(x2.toFixed(2));
+
+
+}
+
+function validanumero(elemento){
+    if (!/^([0-9\-])*$/.test(elemento.value)){
+        alert("Ingrese solo numeros");
+        elemento.value = '';
+    }
+}
+</script>
+<body >
+
+    <div id="titulo">
+        <header>
+            <h1 align="center">Sistema de ecuaciones</h1>
+        </header>
+    </div>
+
+    <form action="#" name="rellenar">
+        <h3>Ingrese las variables:</h3>
+        <div id="variables">
+            <p><input type="text" size="2" id="vc" name="vc" onchange="return validanumero(this)" > X<sup>2</sup>+<input type="text" size="2" id="vl" name="vl" onchange="return validanumero(this)" > X+<input type="text" size="2" id="vi" name="vi" onchange="return validanumero(this)" >=0</p>
+        </div>
+    <h1><input type="button" value="Calcular" onclick="ecuacion()"></h1>
+    </form>
+
+
+        <div id="raices">
+        <h3>Resultado:</h3>
+        <p>X1=<input disabled="disabled" size="3" id="x1"></p>
+        <p>X2=<input disabled="disabled" size="3" id="x2"></p>
+        </div>
+
+        
+    
+
+</body>
+
+</body>
+</html>

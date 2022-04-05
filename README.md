@@ -1,2 +1,0 @@
-# Fundamentos
-Practicas en javascript 
